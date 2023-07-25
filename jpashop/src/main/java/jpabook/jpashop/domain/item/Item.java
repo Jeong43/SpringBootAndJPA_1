@@ -7,10 +7,12 @@ import lombok.Getter;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import lombok.Setter;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "dtype")
+@Setter
 @Getter
 public abstract class Item {
 

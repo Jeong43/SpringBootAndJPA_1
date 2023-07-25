@@ -1,6 +1,5 @@
 package jpabook.jpashop.repository;
 
-import java.util.List;
 import javax.persistence.EntityManager;
 import jpabook.jpashop.domain.Order;
 import lombok.RequiredArgsConstructor;
@@ -12,7 +11,7 @@ public class OrderRepository {
 
   private final EntityManager em;
 
-  public void sava(Order order) {
+  public void save(Order order) {
     em.persist(order);
   }
 

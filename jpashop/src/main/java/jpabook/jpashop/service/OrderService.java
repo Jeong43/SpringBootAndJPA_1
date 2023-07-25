@@ -1,5 +1,6 @@
 package jpabook.jpashop.service;
 
+import java.util.List;
 import jpabook.jpashop.domain.Delivery;
 import jpabook.jpashop.domain.DeliveryStatus;
 import jpabook.jpashop.domain.Member;
@@ -43,13 +44,29 @@ public class OrderService {
     Order order = Order.createOrder(member, delivery, orderItem);
 
     // 주문 저장
-    orderRepository.sava(order); //--> cascade 설정으로 인해 delivery 와 orderItem 도 자동저장
+    orderRepository.save(order); //--> cascade 설정으로 인해 delivery 와 orderItem 도 자동저장
 
     return order.getId();
   }
 
-  // 취소
+  /**
+   * 주문 취소
+   */
+  @Transactional
+  public void cancelOrder(Long orderId) {
+    // 주문 엔티티 조회
+    Order order = orderRepository.findOne(orderId);
+    // 주문 취소
+    order.cancel();
+  }
 
-  // 검색
+  /**
+   * 검색
+   */
+  /*
+  public List<Order> findOrders(OrderSearch orderSearch) {
+    return orderRepository.findAll(orderSearch);
+  }
+  */
 
 }
