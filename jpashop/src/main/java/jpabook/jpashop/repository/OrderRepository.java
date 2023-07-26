@@ -1,5 +1,6 @@
 package jpabook.jpashop.repository;
 
+import java.util.List;
 import javax.persistence.EntityManager;
 import jpabook.jpashop.domain.Order;
 import lombok.RequiredArgsConstructor;
@@ -19,6 +20,8 @@ public class OrderRepository {
     return em.find(Order.class, id);
   }
 
-//  public List<Order> findAll(OrederSearch orederSearch) {}
+  public List<Order> findAll(OrderSearch orderSearch) {
+    return null;
+  }
 
 }
