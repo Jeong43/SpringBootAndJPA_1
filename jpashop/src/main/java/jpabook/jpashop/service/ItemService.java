@@ -1,7 +1,6 @@
 package jpabook.jpashop.service;
 
 import java.util.List;
-import jpabook.jpashop.domain.item.Book;
 import jpabook.jpashop.domain.item.Item;
 import jpabook.jpashop.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
@@ -22,6 +21,7 @@ public class ItemService {
 
   @Transactional
   public void updateItem(Long itemId, String name, int price, int stockQuantity) {
+    //영속성 엔티티 -> 트랜잭션 커밋 시점에서 변경감지가 동적해서 DB에 UPDATE SQL 실행
     Item findItem = itemRepository.findOne(itemId);
     findItem.setName(name);
     findItem.setPrice(price);

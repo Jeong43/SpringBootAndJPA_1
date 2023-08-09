@@ -46,6 +46,9 @@ public class ItemController {
 
   @GetMapping("/items/{itemId}/edit")
   public String updateItemForm(@PathVariable("itemId") Long itemId, Model model) {
+    // 준영속 엔티티: 영속석 상태가 더는 관리하지 않는 엔티티
+    //==> 해당 Book 객체는 이미 DB에 한 번 저장되어서 식별자가 존재한다.
+    //    이렇게 임의로 만들어낸 엔티티도 기존 식별자를 가지고 있으면 준영속 엔티티로 볼 수 있다.
     Book item = (Book) itemService.findItem(itemId);
     BookForm form = new BookForm();
     form.setId(item.getId());
