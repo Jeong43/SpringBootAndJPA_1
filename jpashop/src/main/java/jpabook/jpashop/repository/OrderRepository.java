@@ -47,7 +47,7 @@ public class OrderRepository {
     return order.status.eq(statusCond);
   }
 
-  private static BooleanExpression nameLike(String memberName) {
+  private BooleanExpression nameLike(String memberName) {
     if (!StringUtils.hasText(memberName)) {
       return null;
     }
