@@ -9,13 +9,13 @@ public class OrderItemQueryDto {
   @JsonIgnore
   private Long orderId;
   private String itemName;
-  private int oderPrice;
+  private int orderPrice;
   private int count;
 
-  public OrderItemQueryDto(Long orderId, String itemName, int oderPrice, int count) {
+  public OrderItemQueryDto(Long orderId, String itemName, int orderPrice, int count) {
     this.orderId = orderId;
     this.itemName = itemName;
-    this.oderPrice = oderPrice;
+    this.orderPrice = orderPrice;
     this.count = count;
   }
 }
